@@ -12,8 +12,16 @@
     <div class="container">
       <a class="navbar-brand" href="#">BillPay</a>
       <div align="right">
+      @if(!Auth::check())
       <a class="btn btn-primary btn-nav-right" href="{{route('login')}}">Sign In</a>
       <a class="btn btn-primary btn-nav-right" href="{{route('register')}}">Sign Up</a>
+      @endif
+      @if(Auth::check())
+      <form style="margin:0; padding:0" action="{{route('logout')}}" method="post">
+          {{csrf_field()}}
+      <input class='btn btn-primary btn-nav-right' type='submit' value='Sign Out'>
+    </form>
+      @endif
       <div>
     </div>
   </nav>
