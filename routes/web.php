@@ -28,3 +28,12 @@ Route::get('/admin', [
   'as' => 'admin',
   'role' => 'admin'
 ])->middleware('role');
+
+
+
+Route::get('/bills',
+[
+  'uses' => 'BillsController@index',
+  'as' => 'bills',
+  'role' => 'user'
+])->middleware('role');
