@@ -37,3 +37,19 @@ Route::get('/bills',
   'as' => 'bills',
   'role' => 'user'
 ])->middleware('role');
+
+
+Route::get('/bills/{id}',
+[
+  'uses' => 'BillsController@showPayForm',
+  'as' => 'paybill',
+  'role' => 'user'
+])->middleware('role');
+
+
+Route::get('/bills/pay/{id}',
+[
+  'uses' => 'BillsController@pay',
+  'as' => 'pay',
+  'role' => 'user'
+])->middleware('role');

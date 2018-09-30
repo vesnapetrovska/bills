@@ -21,4 +21,20 @@ class BillsController extends Controller
       return view('bills.index')->with('bills', $bills);
 
     }
+
+    public function showPayForm($id)
+    {
+      $user = Auth::user();
+      $bill = Bills::where('user_id', $user->id)->where('id', $id)->first();
+
+      if($bill != null)
+      {
+        return view('bills.pay')->with('bill', $bill);
+      }
+    }
+
+    public function pay($id)
+    {
+      return view('home');
+    }
 }
