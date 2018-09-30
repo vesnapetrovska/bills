@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -23,7 +24,16 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $users = User::all();
+        return view('admin')->with('users', $users);
+    }
+
+    public function makeAdmin($id)
+    {
+        $user = User::find($id);
+        $user->role_id = 2;
+        $user->save();
+        return redirect()->route('admin');
     }
 }
 //maximilian nesho germanec role badge-secondary

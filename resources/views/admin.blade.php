@@ -12,16 +12,37 @@
 @endsection
 @section('content')
 <div class="container">
+  <div class="row">
+<div class="col-md-8">
 
 
-      <div class="row">
-          <div class="col-md-6">
-            <a class="btn btn-primary" href="{{route('createbill')}}">Add a new bill</a>
 
-          </div>
-      </div>
-</div>
+
+<table class="table">
+  <tr>
+   <th>Name</th>
+   <th>Role</th>
+   <th>Email</th>
+  <th>Email verification</th>
+  <th>No. of unpaid bills</th>
+  <th>Actions</th>
+ </tr>
+@foreach($users as $user)
+<tr>
+    <td>{{ $user->name }}</td>
+    <td>{{ ($user->role_id == 1) ? 'user' : 'admin' }}</td>
+    <td>{{ $user->email }}</td>
+    <td>{{ ($user->email_verified_at == null) ? 'not verified' : $user->email_verified_at }}</td>
+    <td>{{ $user->bills()->where('status', 1)->get()->count()}}</td>
+    <td><a class="btn btn-sm btn-primary" href="{{route('createbill', $user->id)}}">Add a new bill</a></td>
+    <td><a class="btn btn-sm btn-primary" href="{{route('makeadmin', $user->id)}}">Make admin</a></td>
+  </tr>
+
+@endforeach
+</table>
+
     <!-- Footer -->
-
-
+</div>
+  </div>
+    </div>
 @endsection

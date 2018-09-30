@@ -34,6 +34,11 @@ class User extends Authenticatable
       return $this->belongsTo('App\Role', 'role_id');
     }
 
+    public function bills()
+    {
+      return $this->hasMany('App\Bills');
+    }
+
     public function hasRole($role)
     {
       if($this->role->name == $role)

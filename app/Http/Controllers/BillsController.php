@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Bills;
+use App\User;
 
 class BillsController extends Controller
 {
@@ -22,9 +23,11 @@ class BillsController extends Controller
 
     }
 
-    public function create()
+    public function create($id)
     {
-      return view('bills.create');
+      $user = User::find($id);
+      $email = $user->email;
+      return view('bills.create')->with('id', $id)->with('email', $email);
     }
     public function store(Request $request)
     {
@@ -36,7 +39,7 @@ class BillsController extends Controller
         $bill->description = $request->description;
         $bill->save();
 
-        return route('admin');
+        return redirect()->route('admin');
     }
 
     public function showPayForm($id)

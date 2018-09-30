@@ -19,8 +19,11 @@
         <form  action="{{route('storebill')}}" method="post">
         {{csrf_field()}}
 
-        <label for="user_id">User:</label>
-        <input class="form-control" type="text" name="user_id" value="" required>
+        <label for="email">User:</label>
+        <input class="form-control" type="text" name="email" value="{{$email}}" disabled>
+
+        <!-- <label for="user_id">User:</label> -->
+        <input class="form-control" type="hidden" name="user_id" value="{{$id}}" required>
 
         <label for="month">Month:</label>
         <input class="form-control" type="date" name="month" value="">

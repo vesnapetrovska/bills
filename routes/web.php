@@ -22,7 +22,7 @@ Route::get('/home', [
   'as' => 'home',
 
 ]);
-Route::get('/bills/create',
+Route::get('/bills/create/{id}',
 [
   'uses' => 'BillsController@create',
   'as' => 'createbill',
@@ -66,4 +66,11 @@ Route::get('/bills/pay/{id}',
   'uses' => 'BillsController@pay',
   'as' => 'pay',
   'role' => 'user'
+])->middleware('role');
+
+Route::get('/admin/makeadmin/{id}',
+[
+  'uses' => 'AdminController@makeAdmin',
+  'as' => 'makeadmin',
+  'role' => 'admin'
 ])->middleware('role');
