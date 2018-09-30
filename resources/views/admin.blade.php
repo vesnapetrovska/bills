@@ -11,9 +11,16 @@
 <link href="css/landing-page.css" rel="stylesheet">
 @endsection
 @section('content')
+<div class="container">
 
 
-YOU ARE THE ADMIN
+      <div class="row">
+          <div class="col-md-6">
+            <a class="btn btn-primary" href="{{route('createbill')}}">Add a new bill</a>
+
+          </div>
+      </div>
+</div>
     <!-- Footer -->
 
 

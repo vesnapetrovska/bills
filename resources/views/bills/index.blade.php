@@ -14,11 +14,11 @@
 
 
 @foreach($bills as $bill)
-<ul style="decoration: none">
+<ul>
   <li class='li-bg'>
 
       id: <b>{{$bill->id}}</b><br>
-      status: <b>{{$bill->status == 1) ? 'unpaid' : 'paid'}}</b><br>
+      status: <b>{{($bill->status == 1) ? 'unpaid' : 'paid'}}</b><br>
       month: <b>{{$bill->month}}</b><br>
       price: <b>{{$bill->price}} </b><br>
       description: {{$bill->description}}<br>

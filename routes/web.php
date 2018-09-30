@@ -22,6 +22,20 @@ Route::get('/home', [
   'as' => 'home',
 
 ]);
+Route::get('/bills/create',
+[
+  'uses' => 'BillsController@create',
+  'as' => 'createbill',
+  'role' => 'admin'
+])->middleware('role');
+
+
+Route::post('/bills/create',
+[
+  'uses' => 'BillsController@store',
+  'as' => 'storebill',
+  'role' => 'admin'
+])->middleware('role');
 
 Route::get('/admin', [
   'uses' => 'AdminController@index',
