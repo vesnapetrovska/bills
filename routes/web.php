@@ -61,7 +61,7 @@ Route::get('/bills/{id}',
 ])->middleware('role');
 
 
-Route::get('/bills/pay/{id}',
+Route::post('/bills/pay/{id}',
 [
   'uses' => 'BillsController@pay',
   'as' => 'pay',

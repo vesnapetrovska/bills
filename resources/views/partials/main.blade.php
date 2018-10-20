@@ -10,7 +10,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">BillPay</a>
+      <a class="navbar-brand" href="{{route('home')}}">BillPay</a>
       <div align="right">
       @if(!Auth::check())
       <a class="btn btn-primary btn-nav-right" href="{{route('login')}}">Sign In</a>
@@ -76,5 +76,6 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>

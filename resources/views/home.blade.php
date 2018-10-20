@@ -38,7 +38,7 @@
     </header>
 
     <!-- Icons Grid -->
-    <section class="features-icons bg-light text-center">
+    <!-- <section class="features-icons bg-light text-center">
       <div class="container">
         <div class="row">
           <div class="col-lg-4">
@@ -70,10 +70,10 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Image Showcases -->
-    <section class="showcase">
+    <!-- <section class="showcase">
       <div class="container-fluid p-0">
         <div class="row no-gutters">
 
@@ -98,10 +98,10 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Testimonials -->
-    <section class="testimonials text-center bg-light">
+    <!-- <section class="testimonials text-center bg-light">
       <div class="container">
         <h2 class="mb-5">What people are saying...</h2>
         <div class="row">
@@ -128,10 +128,10 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Call to Action -->
-    <section class="call-to-action text-white text-center">
+    <!-- <section class="call-to-action text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -152,7 +152,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
 @endif
 
