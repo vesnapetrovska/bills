@@ -16,13 +16,14 @@
 @foreach($bills as $bill)
 <ul>
   <li class='li-bg'>
-
       id: <b>{{$bill->id}}</b><br>
       status: <b>{{($bill->status == 1) ? 'unpaid' : 'paid'}}</b><br>
       month: <b>{{$bill->month}}</b><br>
       price: <b>{{$bill->price}} </b><br>
       description: {{$bill->description}}<br>
+     @if($bill->status==1)
       <a class='btn btn-primary' href='{{route("paybill", $bill->id)}}'>Pay</a>
+         @endif
   </li>
 </ul>
 @endforeach

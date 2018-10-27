@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\PayingBill;
 use Illuminate\Http\Request;
 use Auth;
 use App\Bills;
 use App\User;
+use Illuminate\Support\Facades\Input;
 
 class BillsController extends Controller
 {
@@ -49,6 +51,7 @@ class BillsController extends Controller
 
       if($bill != null)
       {
+
         return view('bills.pay')->with('bill', $bill);
       }
       else
@@ -59,10 +62,23 @@ class BillsController extends Controller
 
     public function pay($id)
     {
-      $user = Auth::user();
-      $bill = Bills::where('user_id', $user->id)->where('id', $id)->first();
-      $bill->status = 2;
-      $bill->save();
+      $cardNumber=Input::get('card');
+      $name=Input::get('name');
+      $date = Input::get('exp');
+      $cvc = Input::get('cvc');
+        $user = Auth::user();
+
+        $bill = Bills::where('user_id', $user->id)->where('id', $id)->first();
+
+      if($name!=null && strlen($cardNumber)== 12 && $date!= null && strlen($cvc) == 3) {
+
+          $bill->status = 2;
+          $bill->save();
+      }
+      else{
+          return view('bills.pay')->with('bill', $bill)->with('errors', [0 => 'Invalid form input. Try again.']);
+      }
       return view('home');
+
     }
 }

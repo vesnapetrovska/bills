@@ -25,6 +25,24 @@
       <div>
     </div>
   </nav>
+  @if ($errors)
+  <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+              <div class="form-group">
+                <div class="alert alert-danger">
+                  <label>Errors:</label>
+                  <ul>
+                    @foreach($errors as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              </div>
+        </div>
+      </div>
+</div>
+  @endif
   @yield('content')
 
   <footer class="footer bg-light">

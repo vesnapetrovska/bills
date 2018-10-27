@@ -58,10 +58,13 @@
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                    <br>
+                                      <div class="g-recaptcha" data-sitekey="6LdVkXUUAAAAAOlDwyT6G-qWUglyL1pv0wlZv8mi"></div>
                                 </div>
+
                             </div>
 
-                            <div class="g-recaptcha" data-sitekey="6LdVkXUUAAAAAOlDwyT6G-qWUglyL1pv0wlZv8mi"></div>
+
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
