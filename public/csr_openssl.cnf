@@ -1,0 +1,23 @@
+[ req ]
+# Options for the `req` tool (`man req`).
+default_bits        = 2048
+distinguished_name  = req_distinguished_name
+string_mask         = utf8only
+
+[ req_distinguished_name ]
+# See <https://en.wikipedia.org/wiki/Certificate_signing_request>.
+countryName                     = Country Name (2 letter code)
+stateOrProvinceName             = State or Province Name
+localityName                    = Locality Name
+0.organizationName              = Organization Name
+organizationalUnitName          = Organizational Unit Name
+commonName                      = Common Name (student e-mail or group name)
+emailAddress                    = Email Address
+
+# Optionally, specify some defaults.
+countryName_default             = MK
+stateOrProvinceName_default     = Macedonia
+localityName_default            =
+0.organizationName_default      = FINKI
+organizationalUnitName_default  =
+emailAddress_default            =

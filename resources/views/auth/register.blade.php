@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
@@ -59,11 +59,38 @@
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                     <br>
-                                      <div class="g-recaptcha" data-sitekey="6LdVkXUUAAAAAOlDwyT6G-qWUglyL1pv0wlZv8mi"></div>
+                                      <!-- <div class="g-recaptcha" data-sitekey="6LdVkXUUAAAAAOlDwyT6G-qWUglyL1pv0wlZv8mi"></div> -->
                                 </div>
 
                             </div>
 
+                              <span>Generate your key pair:</span>
+                              <br>
+                              <code>openssl genrsa –aes256 –out private/name.key.pem 2048</code>
+                              <br>
+                              <span>Download the CSR conf file:</span>
+                              <a href="{{asset('csr_openssl.cnf')}}"> Download conf file</a>
+                              <span>Create your CSR using the conf file and sign it with your private key</span>
+                              <br>
+                              <code>openssl req –config csr_openssl.cnf –key private/name.key.pem –new –sha256 –out csr/name.csr.pem</code>
+                            <div class="form-group row">
+                                <label for="certificate_request" class="col-md-4 col-form-label text-md-right">{{ __('Upload certificate request') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="certificate_request" type="file" class="form-control-sm" name="certificate_request" required>
+                                    <!-- <br> -->
+                                      <!-- <div class="g-recaptcha" data-sitekey="6LdVkXUUAAAAAOlDwyT6G-qWUglyL1pv0wlZv8mi"></div> -->
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                </div>
+                              <div class="col-md-6">
+                                    <div class="g-recaptcha" data-sitekey="6LdVkXUUAAAAAOlDwyT6G-qWUglyL1pv0wlZv8mi"></div>
+                              </div>
+                            </div>
 
 
                             <div class="form-group row mb-0">

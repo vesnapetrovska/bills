@@ -14,6 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'passphrase' => env('CLIENT_CA_PRIVATE_KEY_PASSPHRASE'),
 
     /*
     |--------------------------------------------------------------------------

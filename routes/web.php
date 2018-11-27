@@ -74,3 +74,10 @@ Route::get('/admin/makeadmin/{id}',
   'as' => 'makeadmin',
   'role' => 'admin'
 ])->middleware('role');
+
+
+Route::get('/verify-user/{code}',
+[
+  'uses' => 'Auth\RegisterController@activateUser',
+  'as' => 'activate.user',
+]);

@@ -25,7 +25,9 @@
       <div>
     </div>
   </nav>
-  @if ($errors)
+
+  @if (count($errors) > 0)
+{{print_r($errors)}}
   <div class="container">
       <div class="row">
         <div class="col-md-8">
@@ -35,6 +37,7 @@
                   <ul>
                     @foreach($errors as $error)
                       <li>{{ $error }}</li>
+
                     @endforeach
                   </ul>
                 </div>
